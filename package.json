@@ -11,6 +11,16 @@
   },
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build:dev": "NODE_ENV=development webpack",
+    "build:production": "NODE_ENV=production webpack -p",
+    "prepublish": "npm run build:production"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
