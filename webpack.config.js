@@ -8,7 +8,9 @@ const WebpackConfig = {
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
-    filename: 'index.js'
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'ReactFlash'
   },
 
   module: {
@@ -34,6 +36,9 @@ if (process.env.NODE_ENV === 'production') {
   }
 
   WebpackConfig.plugins = [
+    new webpack.ProvidePlugin({
+      'React': 'react'
+    }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
